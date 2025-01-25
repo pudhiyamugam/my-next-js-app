@@ -40,3 +40,7 @@ a {
     color-scheme: dark;
   }
 }
+.leaflet-container{
+  width: 100px;
+  height: 100px;
+}
