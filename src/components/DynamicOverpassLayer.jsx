@@ -15,15 +15,14 @@ const fetchOverpassData = async (bbox) => {
     );
     out geom;
   `;
-  const url = `https://overpass-api.de/api/interpreter?data=${encodeURIComponent(
-    query
-  )}`;
+  const url = `https://overpass-api.de/api/interpreter?data=${encodeURIComponent(query)}`;
   const response = await fetch(url);
   const data = await response.json();
   return osmtogeojson(data);
 };
 
 const DynamicOverpassLayer = forwardRef((props, ref) => {
+  const { setData, datab } = props; // Destructure props
   const [overpassData, setOverpassData] = useState(null);
   const map = useMap();
 
@@ -54,7 +53,14 @@ const DynamicOverpassLayer = forwardRef((props, ref) => {
 
   const onFeatureClick = (e) => {
     const properties = e.target.feature.properties;
-    alert(`You clicked on: ${properties.name || "Unnamed feature"}`);
+    console.log("Search results cleared.",properties);
+
+    const foundData = datab.osm_data.find((item) => item.osm_id === parseInt(properties.id.split('/')[1], 10));
+    if (foundData) {
+      setData(foundData.entities);
+    } else {
+      setData("no data");
+    }
   };
 
   return (

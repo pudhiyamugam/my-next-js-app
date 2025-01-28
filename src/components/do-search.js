@@ -35,10 +35,7 @@ export function performSearch(inputField, excludedPlaceIds = []) {
 
     // Display loading indicator
     resultsContainer.innerHTML = loadingMessage;
-    searchLoadingInterval && clearInterval(searchLoadingInterval);
-    searchLoadingInterval = setInterval(() => {
-      notifyLoading();
-    }, 2000);
+   
 
     fetchSearchResults(query, excludedPlaceIds)
       .then((data) => {
@@ -94,7 +91,7 @@ function fetchSearchResults(query, excludedPlaceIds) {
 
 // Renders search results in the results container
 function renderSearchResults(data, container, inputField, resolve) {
-  notifySreenReader("Select from result");
+  
   container.innerHTML = "";
 
   if (data.length === 0) {
@@ -146,7 +143,6 @@ function createResultListItem(result, onClick) {
 }
 
 export function removeResults(){
-  clearInterval(searchLoadingInterval);
   if(document.getElementById("search-results")){
     document.getElementById("search-results")?.parentElement?.removeEventListener('keydown', keyboardselect)
     document.getElementById("search-results")?.remove();

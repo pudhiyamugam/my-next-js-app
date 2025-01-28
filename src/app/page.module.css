@@ -1,111 +1,89 @@
-/* components/Box.module.css */
-.box {
-  width: 200px;
-  height: 200px;
-  background-color: rgb(132, 24, 226);
-  border: 1px solid #000;
+.container {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  user-select: none;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
-.text{
+
+.headerBar {
+  height: 60px;
+  background-color: #8430e2;
+  color: white;
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+  padding: 0 30px;
+}
+
+.mainLayout {
+  display: flex;
+  flex: 1;
+}
+
+.leftBox {
+  width: 30%;
+  background-color: #f5f5f5;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0);
+}
+
+.rightBox {
+  width: 70%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.controls {
   position: absolute;
   top: 10px;
-  left:100px;
-  font-weight: bolder;
-  font-size: 40px;
-  color: black;
-}
-.imageContainer {
-  text-align: center;
-  margin-top: 20px;
-  height: 638px;
-  width: 1029px;
-  position: absolute;
-  top: 80px;
-  left: 500px;
-  background-color: white;
+  left: 10px;
+  z-index: 1000;
+  display: flex;
+  gap: 10px;
 }
 
-.image {
-  width: 100px;
-  height: 100px;
-}
-.button {
-  margin-top: 10px;
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-  position: absolute;
-  left: 50px;
+.searchBar {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
   width: 250px;
-  height: 40px;
 }
-.buttonside{
-  margin-top: 10px;
+
+.extraButton {
   padding: 10px 20px;
   background-color: #007bff;
   color: white;
   border: none;
-  border-radius: 20px;
+  border-radius: 5px;
   cursor: pointer;
-  position: absolute;
-  left: 305px;
-  width: 50px;
-  height: 40px;
-}
-.details_box{
-  position: absolute;
-  top: 140px;
-  left: 60px;
-  height: 450px;
-  width: 330px;
-  border-radius: 20px;
-  background-color: white;
-}
-.zoom{
-  height: 50px;
-  width: 50px;
-  border-radius: 25px;
-  background-color: black;
-  position: absolute;
-  left: 950px;
-  top: 250px;
+max-height: min-content;
 
 }
-.zoom_out{
-  height: 50px;
-  width: 50px;
-  border-radius: 25px;
-  background-color: black;
+
+.mapContainer {
+  flex: 1;
+  height: 100%;
+  width: 100%;
   position: absolute;
-  left: 950px;
-  top: 300px;
 }
-.zoom_oth{
-  height: 50px;
-  width: 50px;
-  border-radius: 25px;
-  background-color: black;
-  position: absolute;
-  left: 950px;
-  top: 350px;
-}
-.input{
-  margin-top: 10px;
+.rBotton{
   padding: 10px 20px;
   background-color: #007bff;
   color: white;
   border: none;
-  border-radius: 20px;
+  border-radius: 5px;
   cursor: pointer;
-  position: absolute;
-  left: 50px;
-  width: 250px;
-  height: 40px;
+  right: 0;
+max-height: min-content;
+}
+.note{
+  color: rgb(0, 0, 0);
+}
+.card{
+  color: rgb(0, 0, 0);
+
 }
